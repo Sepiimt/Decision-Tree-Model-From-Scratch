@@ -1,0 +1,8 @@
+Accuracy: 0.9436619718309859
+Confusion matrix (rows=actual, cols=pred):
+Labels: [0 1]
+[[85  5]
+ [ 3 49]]
+Precision: 0.9074074074074074
+Recall: 0.9423076923076923
+F1: 0.9245283018867925
