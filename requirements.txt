@@ -1,0 +1,6 @@
+numpy==2.3.5
+matplotlib==3.10.8
+pandas==2.3.3
+seaborn==0.13.2
+scikit-learn==1.8.0
+ipython==9.8.0
