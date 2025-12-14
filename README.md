@@ -80,7 +80,9 @@ After cleaning and encoding, the model is trained on a train/test split.
 
 #### **3.1 Gini Impurity**
 Measures how mixed a node is:
+
 $$Gini = 1 - \sum_{k=1}^{K} p_k^2$$
+
 Where:
 	
 * (`p_k`) is the proportion of each class
@@ -98,6 +100,7 @@ If a split produces left set (L) and right set (R):
 
 $$G_{after}= \frac{|L|}{|L|+|R|} G(L)* \frac{|R|}{|L|+|R|} G(R)$$
 
+
 This ensures large child nodes have more influence.
 
 
@@ -106,6 +109,7 @@ This ensures large child nodes have more influence.
 The decision tree tries all features and split thresholds, and chooses the one maximizing:
 
 $$\Delta G = G_{before} - G_{after}$$
+
 The selected feature + value is stored inside the node:
 ```
 node.feature_index
@@ -208,6 +212,7 @@ For a medical model, good precision avoids unnecessary panic, biopsies, or treat
 
 #### **3. Recall: 0.9423**
 $$Recall = \frac{TP}{TP + FN}$$
+
 How many malignant cases the model *successfully caught*.
 
 Interpretation:
@@ -221,6 +226,7 @@ This is arguably the most important metric in medical detection.
 
 #### **4. F1 Score: 0.9245**
 $$F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}$$
+
 Harmonic mean of precision and recall.
 
 Interpretation:
