@@ -80,9 +80,7 @@ After cleaning and encoding, the model is trained on a train/test split.
 
 #### **3.1 Gini Impurity**
 Measures how mixed a node is:
-$$
-Gini = 1 - \sum_{k=1}^{K} p_k^2
-$$
+$$Gini = 1 - \sum_{k=1}^{K} p_k^2$$
 Where:
 	
 * (`p_k`) is the proportion of each class
@@ -97,12 +95,8 @@ Examples:
 #### **3.2 Weighted Gini After Split**
 
 If a split produces left set (L) and right set (R):
-$$
-G_{after}
-= \frac{|L|}{|L|+|R|} G(L)
 
-* \frac{|R|}{|L|+|R|} G(R)
-$$
+$$G_{after}= \frac{|L|}{|L|+|R|} G(L)* \frac{|R|}{|L|+|R|} G(R)$$
 
 This ensures large child nodes have more influence.
 
@@ -110,9 +104,8 @@ This ensures large child nodes have more influence.
 
 #### **3.3 Gini Decrease (Split Quality)**
 The decision tree tries all features and split thresholds, and chooses the one maximizing:
-$$
-\Delta G = G_{before} - G_{after}
-$$
+
+$$\Delta G = G_{before} - G_{after}$$
 The selected feature + value is stored inside the node:
 ```
 node.feature_index
@@ -147,28 +140,9 @@ Otherwise, the node:
 Prediction is done by recursive tree traversal:
 	
 * numerical features:
-  * go left if `value <= threshold`$$
-𝑥
-[
-𝑓
-𝑒
-𝑎
-𝑡
-𝑢
-𝑟
-𝑒
-]
-≤
-𝑡
-ℎ
-𝑟
-𝑒
-𝑠
-ℎ
-𝑜
-𝑙
-𝑑
-x[feature]≤threshold$$
+  * go left if `value <= threshold`
+	
+$$𝑥[𝑓𝑒𝑎𝑡𝑢𝑟𝑒]≤𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑x[feature]≤threshold$$
 	
 	
 * categorical features:
@@ -209,9 +183,8 @@ This maps to:
 Using these, our metrics are:
 
 
-#### **1. Accuracy: 0.94366**$$
-Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
-$$
+#### **1. Accuracy: 0.94366**
+$$Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$
 
 This measures overall correctness.
 It’s fine in balanced datasets, but can mislead when one class dominates.
@@ -219,9 +192,8 @@ Ours is fairly balanced, so accuracy is genuinely informative.
 
 
 
-#### **2. Precision: 0.9074**$$
-Precision = \frac{TP}{TP + FP}
-$$
+#### **2. Precision: 0.9074**
+$$Precision = \frac{TP}{TP + FP}$$
 
 How often the model was *right* when it predicted **malignant**.
 
@@ -235,9 +207,7 @@ For a medical model, good precision avoids unnecessary panic, biopsies, or treat
 
 
 #### **3. Recall: 0.9423**
-$$
-Recall = \frac{TP}{TP + FN}
-$$
+$$Recall = \frac{TP}{TP + FN}$$
 How many malignant cases the model *successfully caught*.
 
 Interpretation:
@@ -250,9 +220,7 @@ This is arguably the most important metric in medical detection.
 
 
 #### **4. F1 Score: 0.9245**
-$$
-F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
-$$
+$$F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}$$
 Harmonic mean of precision and recall.
 
 Interpretation:
