@@ -80,7 +80,6 @@ After cleaning and encoding, the model is trained on a train/test split.
 
 #### **3.1 Gini Impurity**
 Measures how mixed a node is:
-
 $$
 Gini = 1 - \sum_{k=1}^{K} p_k^2
 $$
@@ -98,7 +97,6 @@ Examples:
 #### **3.2 Weighted Gini After Split**
 
 If a split produces left set (L) and right set (R):
-
 $$
 G_{after}
 = \frac{|L|}{|L|+|R|} G(L)
@@ -112,7 +110,6 @@ This ensures large child nodes have more influence.
 
 #### **3.3 Gini Decrease (Split Quality)**
 The decision tree tries all features and split thresholds, and chooses the one maximizing:
-
 $$
 \Delta G = G_{before} - G_{after}
 $$
@@ -150,7 +147,8 @@ Otherwise, the node:
 Prediction is done by recursive tree traversal:
 	
 * numerical features:
-  * go left if `value <= threshold`$$𝑥
+  * go left if `value <= threshold`$$
+𝑥
 [
 𝑓
 𝑒
@@ -171,6 +169,7 @@ Prediction is done by recursive tree traversal:
 𝑙
 𝑑
 x[feature]≤threshold$$
+	
 	
 * categorical features:
   * go left if the category is in the chosen subset
@@ -210,20 +209,20 @@ This maps to:
 Using these, our metrics are:
 
 
-#### **1. Accuracy: 0.94366**
-$$
+#### **1. Accuracy: 0.94366**$$
 Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
 $$
+
 This measures overall correctness.
 It’s fine in balanced datasets, but can mislead when one class dominates.
 Ours is fairly balanced, so accuracy is genuinely informative.
 
 
 
-#### **2. Precision: 0.9074**
-$$
+#### **2. Precision: 0.9074**$$
 Precision = \frac{TP}{TP + FP}
 $$
+
 How often the model was *right* when it predicted **malignant**.
 
 Interpretation:
